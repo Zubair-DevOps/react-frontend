@@ -18,7 +18,7 @@ class App extends Component {
   }
   refreshList = () => {
     axios
-      .get("http://alson-test-alb-2099660533.us-east-1.elb.amazonaws.com/api/user/")
+      .get("http://alson-test-alb-856941859.us-east-1.elb.amazonaws.com/api/user/")
       .then(res => this.setState({ data: res.data }))
       .catch(err => console.log(err));
   };
@@ -65,17 +65,17 @@ class App extends Component {
     this.toggle();
     if (listItem.id) {
       axios
-        .put(`http://alson-test-alb-2099660533.us-east-1.elb.amazonaws.com/api/user/${listItem.id}/`, listItem)
+        .put(`http://alson-test-alb-856941859.us-east-1.elb.amazonaws.com/api/user/${listItem.id}/`, listItem)
         .then(res => this.refreshList());
       return;
     }
     axios
-      .post("http://alson-test-alb-2099660533.us-east-1.elb.amazonaws.com/api/user/", listItem)
+      .post("http://alson-test-alb-856941859.us-east-1.elb.amazonaws.com/api/user/", listItem)
       .then(res => this.refreshList());
   };
   handleDelete = listItem => {
     axios
-      .delete(`http://alson-test-alb-2099660533.us-east-1.elb.amazonaws.com/api/user/${listItem.id}/`)
+      .delete(`http://alson-test-alb-856941859.us-east-1.elb.amazonaws.com/api/user/${listItem.id}/`)
       .then(res => this.refreshList());
   };
   
