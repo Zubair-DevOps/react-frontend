@@ -18,7 +18,7 @@ class App extends Component {
   }
   refreshList = () => {
     axios
-      .get("https://devopstest.fun/api/user/")
+      .get("https://api.devopstest.fun/api/user/")
       .then(res => this.setState({ data: res.data }))
       .catch(err => console.log(err));
   };
@@ -65,17 +65,17 @@ class App extends Component {
     this.toggle();
     if (listItem.id) {
       axios
-        .put(`https://devopstest.fun/api/user/${listItem.id}/`, listItem)
+        .put(`https://api.devopstest.fun/api/user/${listItem.id}/`, listItem)
         .then(res => this.refreshList());
       return;
     }
     axios
-      .post("https://devopstest.fun/api/user/", listItem)
+      .post("https://api.devopstest.fun/api/user/", listItem)
       .then(res => this.refreshList());
   };
   handleDelete = listItem => {
     axios
-      .delete(`https://devopstest.fun/api/user/${listItem.id}/`)
+      .delete(`https://api.devopstest.fun/api/user/${listItem.id}/`)
       .then(res => this.refreshList());
   };
   
